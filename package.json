@@ -1,29 +1,37 @@
 {
-  "name": "sharediet",
+  "name": "hpgr-sharediet",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "App to share weight with your friends",
+  "main": "app.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hpgrryo/sharediet.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hpgrryo/sharediet/issues"
+  },
+  "homepage": "https://github.com/hpgrryo/sharediet#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-    "ejs": "^3.1.6",
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "express-flash": "0.0.2",
-    "express-session": "^1.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
     "method-override": "^3.0.0",
-    "mongodb": "^3.6.9",
-    "mongoose": "^5.12.11",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.12",
+    "morgan": "^1.10.0",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "passport-session": "^1.0.2"
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.7"
   }
 }

@@ -1,0 +1,51 @@
+{{#if weights}}
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+{{else}}
+<p>まだ体重の記録がないようなので、体重を入力しよう！</p>
+{{/if}}
+
+<script>
+  const labels = [
+  // mongoからcreatedAtとれるようにする
+  // タイムゾーンだかなんかのせいでうまくとれない
+    {{#each weights}}
+      {{weight}},
+    {{/each}}
+  ]
+  const test = [
+          {{#each weights}}
+          {{$createdAt}},
+        {{/each}}
+  ]
+  console.log(test)
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: '{{ name }}',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [
+        {{#each weights}}
+          {{weight}},
+        {{/each}}
+      ],
+    }]
+  };
+  const config = {
+    type: 'line',
+    data,
+    options: {
+      responsive: true,
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      },
+    }
+  }
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
